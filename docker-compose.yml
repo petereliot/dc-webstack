@@ -1,0 +1,67 @@
+nginx-proxy:
+    image: jwilder/nginx-proxy
+    container_name: hf-proxy
+    ports:
+      - 80:80
+    volumes:
+      - /var/run/docker.sock:/tmp/docker.sock:ro
+db:
+    image: mysql
+    container_name: hf-mysql
+    hostname: mysql
+    ports:
+        - 3306:3306
+    environment:
+        MYSQL_ROOT_PASSWORD: password
+        MYSQL_DATABASE: symfony
+        MYSQL_USER: dev
+        MYSQL_PASSWORD: password
+    #volumes:
+     #   - "./.data/db:/var/lib/mysql"
+rabbitmq:
+    build: rabbit
+    container_name: hf-rabbit
+    environment:
+        VIRTUAL_HOST: rabbit.hf.lo
+        VIRTUAL_PORT: 15672
+    #hostname: rabbit #fix understand why hostname is incompatible with nginx proxy service
+    ports:
+      - 15672:15672
+      - 5672:5672
+      - 25672:25672
+      - 4369:4369
+mailhog:
+  image: mailhog/mailhog
+  container_name: hf-mail
+  environment:
+    VIRTUAL_HOST: mail.hf.lo
+    VIRTUAL_PORT: 8025
+  hostname: mailhog
+  ports:
+    - 8026:8025
+webserver:
+    build: webserver
+    container_name: hf-api
+    environment:
+        VIRTUAL_HOST: api.hf.lo
+    ports:
+        - 81:80
+    volumes:
+        - ./sf3:/var/www/html:rw
+    links:
+        - db:mysql
+        - rabbitmq
+        - mailhog
+    tty: true
+pma:
+  image: phpmyadmin/phpmyadmin
+  container_name: hf-pma
+  links:
+    - db:mysql
+  ports:
+    - 8181:80
+  environment:
+    VIRTUAL_HOST: pma.hf.lo
+    PMA_HOST: mysql
+    PMA_USER: root
+    PMA_PASSWORD: password
