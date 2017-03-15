@@ -1,6 +1,6 @@
-#Docker compose webstack
+# Docker compose webstack
 
-###Containers
+### Containers
 
 - container 1:
 
@@ -33,7 +33,7 @@
 
     accessible at `mail.hf.lo` or on port 8026 at http://127.0.0.1:8026
     
-###Updating your /etc/hosts file
+### Updating your /etc/hosts file
 
 Add the following entries
 
@@ -44,7 +44,7 @@ Add the following entries
 127.0.0.1	rabbit.hf.lo
 ```
 
-###Building the stack
+### Building the stack
 
 You must have git, docker and docker-compose installed before
 
@@ -78,7 +78,7 @@ Will send a test email to mailhog with swiftmailer
 
 `docker exec -ti hf-api /var/www/html/bin/console sw:em:se --from=foo@bar --to=just@do --subject=test --body=works`
 
-###Troubleshooting
+### Troubleshooting
 
 If you need to retrieve the IP of a container
  
@@ -92,7 +92,7 @@ If you need to inspect the logs of a specific container
 
 `docker logs hf-api`
 
-###Optional docker commands
+### Optional docker commands
 
 `docker-compose ps`
 
