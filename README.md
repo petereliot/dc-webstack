@@ -51,8 +51,8 @@ You must have git, docker and docker-compose installed before
 
 ```bash
 git clone https://github.com/chisNaN/dc-webstack
-git checkout 3wa
 cd dc-webstack
+git checkout 3wa
 docker-compose up
 ```
 
