@@ -1,96 +1,76 @@
 # Docker compose webstack
 
+> # A docker compose LAMP stack including phpmyadmin and mailhog
+
 ### Containers
 
 - container 1:
 
-    **hf-api** (ubuntu:16.10) official docker image
-
-    accessible at `api.hf.lo` or on port 81 at http://127.0.0.1:81
-
+    **3wa-proxy** serving as proxy server for naming resolutions
+    
 - container 2:
 
-    **hf-mysql** (latest 5.7) official docker image:
-    
-    user: root
-    password: password
+    **3wa-api** (ubuntu:16.10) official docker image
+
+    accessible at `api.3wa.lo` or on port 81 at http://127.0.0.1:81
 
 - container 3:
 
-    **hf-rabbit** (3.6-management) official docker image
+    **3wa-mysql** (latest 5.7) official docker image:
     
-    web management interface accessible at `rabbit.hf.lo` or on port 15672 at http://127.0.0.1:15672
+    user: root
+    password: 3wa
 
 - container 4:
 
-    **hf-pma** using official phpmyadmin image
+    **3wa-pma** using official phpmyadmin image
 
-    accessible at `pma.hf.lo` or on port 8181 at http://127.0.0.1:8181
+    accessible at `pma.3wa.lo` or on port 8181 at http://127.0.0.1:8181
     
 - container 5:
 
-    **hf-mail** using official mailhog image
+    **3wa-mail** using official mailhog image
 
-    accessible at `mail.hf.lo` or on port 8026 at http://127.0.0.1:8026
+    accessible at `mail.3wa.lo` or on port 8026 at http://127.0.0.1:8026
     
-### Updating your /etc/hosts file
+### Updating your host environment
 
-Add the following entries
+:bulb: Add the following entries in your /etc/hosts files
 
 ```
-127.0.0.1	pma.hf.lo
-127.0.0.1	mail.hf.lo
-127.0.0.1	api.hf.lo
-127.0.0.1	rabbit.hf.lo
+127.0.0.1	pma.3wa.lo
+127.0.0.1	mail.3wa.lo
+127.0.0.1	api.3wa.lo
 ```
 
 ### Building the stack
 
 You must have git, docker and docker-compose installed before
 
-`git clone https://github.com/chisNaN/dc-webstack`
-
-`cd dc-webstack`
-
-`docker-compose up -d`
-
-###Running a symfony application
-
-`chmod 777 sf3-app.sh`
-
-`./sf3-app.sh`
-
-###Communicating from host OS with symfony console
-
-Will list all avaiblable symfony commands
-
-`docker exec -ti hf-api /var/www/html/bin/console`
-
-Will create the symfony database
-
-`docker exec -ti hf-api /var/www/html/bin/console do:da:cr`
-
-Will clear the cache for your prod env (in case of error)
-
-`docker exec -ti hf-api /var/www/html/bin/console ca:cl -e prod`
+```bash
+git clone https://github.com/chisNaN/dc-webstack
+git checkout master
+cd dc-webstack
+docker-compose up
+```
 
 Will send a test email to mailhog with swiftmailer
 
-`docker exec -ti hf-api /var/www/html/bin/console sw:em:se --from=foo@bar --to=just@do --subject=test --body=works`
+`docker exec -ti 3wa-api /var/www/html/bin/console sw:em:se --from=foo@bar --to=just@do --subject=test --body=works`
 
 ### Troubleshooting
 
 If you need to retrieve the IP of a container
  
-`docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' hf-rabbit`
+`docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' 3wa-rabbit`
 
-If the hf-api shows Exit 0 when running `docker-compose ps` (after `docker-compose restart`)
+If the 3wa-api shows Exit 0 when running `docker-compose ps` (after `docker-compose restart`)
 
 just run: `docker-compose up -d --force-recreate --build`
 
 If you need to inspect the logs of a specific container
 
-`docker logs hf-api`
+`docker logs 3wa-api`
 
 ### Optional docker commands
 
