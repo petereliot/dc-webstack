@@ -1,6 +1,6 @@
 # Docker compose webstack
 
-> # A docker compose LAMP stack including phpmyadmin and mailhog
+> ## A docker compose LAMP stack including phpmyadmin and mailhog
 
 ### Containers
 
@@ -47,7 +47,7 @@
 
 ### Building the stack
 
-You must have git, docker and docker-compose installed before
+:bulb: You must have git, docker and docker-compose installed before
 
 ```bash
 git clone https://github.com/chisNaN/dc-webstack
@@ -56,9 +56,7 @@ git checkout 3wa
 docker-compose up
 ```
 
-Will send a test email to mailhog with swiftmailer
-
-`docker exec -ti 3wa-api /var/www/html/bin/console sw:em:se --from=foo@bar --to=just@do --subject=test --body=works`
+You may execute [http://api.3wa.lo/test-mail.php](http://api.3wa.lo/test-mail.php) to send a test email.
 
 ### Troubleshooting
 
@@ -74,7 +72,7 @@ If you need to inspect the logs of a specific container
 
 `docker logs 3wa-api`
 
-### Optional docker commands
+### Docker info commands
 
 `docker-compose ps`
 
