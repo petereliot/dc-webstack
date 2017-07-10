@@ -18,8 +18,10 @@
 
     **3wa-mysql** (latest 5.7) official docker image:
     
+    ```
     user: root
-    password: 3wa
+    password: password
+    ```
 
 - container 4:
 
@@ -49,7 +51,7 @@ You must have git, docker and docker-compose installed before
 
 ```bash
 git clone https://github.com/chisNaN/dc-webstack
-git checkout master
+git checkout 3wa
 cd dc-webstack
 docker-compose up
 ```
