@@ -1,6 +1,6 @@
 # Docker compose webstack
 
-> ## A docker compose LAMP stack including phpmyadmin and mailhog
+> ## A docker compose LAMP stack (comprising phpmyadmin and mailhog)
 
 ### Containers
 
