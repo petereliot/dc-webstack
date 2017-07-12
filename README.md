@@ -10,7 +10,7 @@
     
 - container 2:
 
-    **3wa-api** (ubuntu:16.10) official docker image
+    **3wa-api** running php and apache
 
     accessible at `api.3wa.lo` or on port 81 at http://127.0.0.1:81
 
