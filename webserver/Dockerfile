@@ -33,6 +33,9 @@ RUN go get github.com/mailhog/mhsendmail
 RUN ln -s /go/bin/mhsendmail /usr/bin/mhsendmail
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/bin/ --filename=composer
 RUN sed -i -e 's#;sendmail_path =#sendmail_path ="/usr/bin/mhsendmail --smtp-addr=mailhog:1025"#' /etc/php/7.0/apache2/php.ini
+RUN sed -i -E 's#short_open_tag = (On|Off)#short_open_tag = On#' /etc/php/7.0/apache2/php.ini
+RUN sed -i -E 's#display_errors = (On|Off)#display_errors = On#' /etc/php/7.0/apache2/php.ini
+RUN sed -i -e 's#error_reporting = E_ALL \& ~E_DEPRECATED \& ~E_STRICT#error_reporting = E_ALL \& ~E_NOTICE \& ~E_STRICT \& ~E_DEPRECATED#' /etc/php/7.0/apache2/php.ini
 RUN sed -i '10i\\tHeader set Access-Control-Allow-Origin "*"' /etc/apache2/sites-available/000-default.conf
 
 #COPY apache_default /etc/apache2/sites-available/000-default.conf
