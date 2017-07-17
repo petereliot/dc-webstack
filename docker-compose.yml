@@ -33,6 +33,7 @@ webserver:
     container_name: 3wa-api
     environment:
         VIRTUAL_HOST: api.3wa.lo
+        TERM: xterm
     ports:
         - 81:80
     volumes:
