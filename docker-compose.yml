@@ -10,7 +10,7 @@ db:
     container_name: 3wa-mysql
     hostname: mysql
     ports:
-        - 3306:3306
+        - 3307:3306
     environment:
     # root password must be "password"
         MYSQL_ROOT_PASSWORD: password

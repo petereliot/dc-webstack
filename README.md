@@ -22,6 +22,10 @@
     user: root
     password: password
     ```
+ 
+    launched on port 3307 on the host machine (in order not to interfere with already mysql server listening)
+    
+    `mysql -h 127.0.0.1 -u root --port=3307 -ppassword`
 
 - container 4:
 
