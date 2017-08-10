@@ -18,10 +18,7 @@
 
     **3wa-mysql** (latest 5.7) official docker image:
     
-    ```bash
-    user: root
-    password: password
-    ```
+    `user: root password: password`
  
     launched on port 3307 on the host machine (in order not to interfere with already mysql server listening)
     
