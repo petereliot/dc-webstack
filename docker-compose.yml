@@ -10,7 +10,7 @@ db:
     container_name: hf-mysql
     hostname: mysql
     ports:
-        - 3306:3306
+        - 3307:3306
     environment:
         MYSQL_ROOT_PASSWORD: password
         MYSQL_DATABASE: symfony

@@ -54,13 +54,13 @@ You must have git, docker and docker-compose installed before
 
 `docker-compose up -d`
 
-###Running a symfony application
+### Running a symfony application
 
 `chmod 777 sf3-app.sh`
 
 `./sf3-app.sh`
 
-###Communicating from host OS with symfony console
+### Communicating from host OS with symfony console
 
 Will list all avaiblable symfony commands
 

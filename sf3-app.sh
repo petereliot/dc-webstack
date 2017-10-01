@@ -7,4 +7,4 @@ sudo chmod -R 777 ./sf3/var/{cache,logs,sessions}
 cp parameters.yml ./sf3/app/config/parameters.yml
 cp config.yml ./sf3/app/config/config.yml
 #docker-compose stop
-#docker-compose up -d --force-recreate
+#docker-compose up --build --force-recreate
