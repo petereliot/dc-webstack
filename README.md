@@ -1,7 +1,5 @@
 # Docker compose webstack [sf4 branch]
 
-> To create your new Symfony application, first make sure you're using **PHP 7.1** or higher and have **Composer** installed.
-
 ### Containers
 
 - container 1:
@@ -56,7 +54,11 @@ You must have git, docker and docker-compose installed before
 
 `docker-compose up -d`
 
-### Running a symfony application
+### Running a symfony4 application
+
+> To create your new Symfony application, first make sure you're using **PHP 7.1** or higher and have **Composer** installed.
+
+The following bash will do all for you
 
 `chmod +x sf4-install-ubuntu.sh`
 
