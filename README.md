@@ -64,6 +64,8 @@ The following bash will do all for you
 
 `./sf4-install-ubuntu.sh`
 
+You could follow this [tutorial](http://fabien.potencier.org/symfony4-demo.html) to install EasyAdmin bundle to manage simple entities
+
 ### Communicating from host OS with symfony console
 
 Will list all avaiblable symfony commands
