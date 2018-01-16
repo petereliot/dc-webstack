@@ -4,7 +4,7 @@
 
 - container 1:
 
-    **dc-api** (ubuntu:16.10) official docker image
+    **dc-api** (ubuntu:17.10) official docker image
 
     accessible at `api.docker` or on port 81 at http://127.0.0.1:81
 
